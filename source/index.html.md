@@ -30,6 +30,10 @@ Authentication & Authorization is handled by Oauth from Sirclo account module.
 All request to fulfillment control are authenticated and authorized using a mechanism discussed in <code>Authentication</code> Section.
 </aside>
 
+<aside class="warning">
+Don't share you <code>client_secret</code> and <code>access_token</code> with anyone. Protect it
+</aside>
+
 # Order API 
 ## Get All Orders
 
