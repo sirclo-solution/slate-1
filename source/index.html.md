@@ -31,7 +31,7 @@ All request to fulfillment control are authenticated and authorized using a mech
 </aside>
 
 <aside class="warning">
-Don't share you <code>client_secret</code> and <code>access_token</code> with anyone. Protect it
+Don't share your <code>client_secret</code> and <code>access_token</code> with anyone. Protect it
 </aside>
 
 # Order API 
