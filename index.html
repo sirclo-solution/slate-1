@@ -270,7 +270,6 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -540,28 +539,26 @@
 </tbody></table>
 
 <blockquote>
-<p>Request body example:
-<code>json
-{
-  &quot;basicDetails&quot;: {
-    &quot;bookingNo&quot;: &quot;20200811_081455_budi&quot;,
-    &quot;timestamp&quot;: &quot;2020-11-18T09:44:53.136Z&quot;
-  },
-  &quot;products&quot;: [
-    {
-      &quot;productCode&quot;: &quot;ENESS0318-8992772265041&quot;,
-      &quot;quantity&quot;: {
-        &quot;value&quot;: 10,
-        &quot;uom&quot;: &quot;Pcs&quot;
-      },
-      &quot;status&quot;: &quot;Normal&quot;,
-      &quot;reason&quot;: &quot;Pcs&quot;
-    }
-  ]
-}
-</code></p>
-<h3 id='responses'>Responses</h3></blockquote>
-
+<p>Request body example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"basicDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bookingNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20200811_081455_budi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-18T09:44:53.136Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENESS0318-8992772265041"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pcs"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pcs"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='responses'>Responses</h3>
 <table><thead>
 <tr>
 <th>Code</th>
