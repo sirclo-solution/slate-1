@@ -222,26 +222,51 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#order-api" class="toc-h1 toc-link" data-title="Order API">Order API</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-all-orders" class="toc-h2 toc-link" data-title="Get All Orders">Get All Orders</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#logistix-api" class="toc-h1 toc-link" data-title="Logistix API">Logistix API</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-location" class="toc-h2 toc-link" data-title="Get Location">Get Location</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+          <li>
+            <a href="#good-issued" class="toc-h1 toc-link" data-title="Good Issued">Good Issued</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#request-body-parameters" class="toc-h2 toc-link" data-title="Request Body Parameters">Request Body Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#goods-received-note" class="toc-h1 toc-link" data-title="Goods Received Note">Goods Received Note</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#bookings-request-body-parameters" class="toc-h2 toc-link" data-title="Bookings - Request Body Parameters">Bookings - Request Body Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#status-update" class="toc-h1 toc-link" data-title="Status Update">Status Update</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#order-status-update" class="toc-h2 toc-link" data-title="Order Status UPdate">Order Status UPdate</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#timeline-update" class="toc-h1 toc-link" data-title="Timeline Update">Timeline Update</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#order-timeline-update" class="toc-h2 toc-link" data-title="Order Timeline Update">Order Timeline Update</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -252,979 +277,31 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p><strong>Welcome To SIRCLO API Documentation</strong>
-You can used this API to connect your backend system to Sirclo system. </p>
+        <!-- Converted with the swagger-to-slate https://github.com/lavkumarv/swagger-to-slate -->
+<h1 id='introduction'>Introduction</h1>
+<p><strong>Welcome To SIRCLO WMS Integration API Documentation</strong> <em>Test</em></p>
 
-<p><strong>Version:</strong> 1.0 </p>
-<h1 id='authentication'>Authentication</h1>
-<p>Authentication &amp; Authorization is handled by Oauth from Sirclo account module.</p>
+<p><strong>Version:</strong> 1.0</p>
 
-<aside class="notice">
-All request to fulfillment control are authenticated and authorized using a mechanism discussed in <code>Authentication</code> Section.
-</aside>
-
-<aside class="warning">
-Don't share your <code>client_secret</code> and <code>access_token</code> with anyone. Protect it
-</aside>
-<h1 id='order-api'>Order API</h1><h2 id='get-all-orders'>Get All Orders</h2>
-<p><strong>Description:</strong> Get All Orders </p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>***GET*** /order</code> </p>
-
-<p><strong>Parameters</strong></p>
+<p>You can used this API to connect to SIRCLO Platform.</p>
 
 <table><thead>
 <tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
+<th>Environment</th>
+<th>Host URL</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Authorization</td>
-<td>header</td>
-<td>Access token to access this API</td>
-<td>Yes</td>
-<td>string</td>
+<td>Production</td>
+<td><a href="https://wms.sirclo-integrations.com">https://wms.sirclo-integrations.com</a></td>
+</tr>
+<tr>
+<td>Staging</td>
+<td><a href="https://wms.sirclo-integrations.com.dmmy.me">https://wms.sirclo-integrations.com.dmmy.me</a></td>
 </tr>
 </tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-07T03:46:16.457936Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-07T03:46:16.457938Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-07T03:40:57Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"customer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"remote_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1362230256"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"currency_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDR"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"exchange_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"customer_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"181362230256"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quote_expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"required_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"warehouse_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Danny"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jl Biak no 19C</span><span class="se">\r\n</span><span class="s2">sebelah Bank Permata"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_street_address_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gambir"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta Pusat"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI Jakarta"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_post_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10150"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indonesia"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JNE REG"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_method_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_enterprise_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_enterprise_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"buyer_delivery_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"remote_order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tax_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PPN"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tax_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">45000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"discount_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">47500</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"remarks"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"marketplace_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bklp"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"087867255331"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"airwaybill_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shipment_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shipment_extras"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"packed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"cancelled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shipment_tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"edited_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"exported_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"printed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"accepted_by"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"packed_by"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"cancelled_by"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"printed_by"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"price_adjustment"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"edit_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"cancel_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-06T10:00:10.569693Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-07T21:00:10.873379Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-05T08:29:23Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"customer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"remote_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"214"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"currency_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDR"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"exchange_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"customer_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201800242"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quote_expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"required_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"warehouse_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-transfer"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Danny "</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melati 6 no 38 Kapuk Cengkareng "</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_street_address_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kota Jakarta Barat - Cengkareng"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI Jakarta"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_post_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11720"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indonesia"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JNE REG"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_method_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_enterprise_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"delivery_enterprise_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"buyer_delivery_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"remote_order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipped"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tax_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PPN"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tax_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"discount_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">450000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">459000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"packed"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"remarks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zxcv"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"marketplace_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"srcl"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"087867255331"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"airwaybill_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shipment_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shipment_extras"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-05T08:29:23Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-06T10:00:10.569613Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"packed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-06T10:00:10.569613Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"cancelled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shipment_tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"edited_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"exported_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"printed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"accepted_by"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"packed_by"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"cancelled_by"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"printed_by"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"price_adjustment"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"edit_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"cancel_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='logistix-api'>Logistix API</h1><h2 id='get-location'>Get Location</h2>
-<p><strong>Summary: Get Province and SUbdistrict</strong></p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>***GET*** /location/srcl</code></p>
-
-<p><strong>Responses</strong></p>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INDONESIA"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"provinces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANGGROE ACEH DARUSSALAM (NAD)"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"cities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC01"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0101"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-ARONGAN LAMBALEK"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0102"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-BUBON"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0103"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-JOHAN PAHLAWAN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0104"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-KAWAY XVI"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0105"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-MEUREUBO"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0106"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-PANTE CEUREUMEN (PANTAI CEUREMEN)"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0107"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-PANTON REU"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0108"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-SAMATIGA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0109"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-SUNGAI MAS"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC010A"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-WOYLA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC010B"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-WOYLA BARAT"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC010C"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT-WOYLA TIMUR"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC02"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT DAYA"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0201"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT DAYA-BABAH ROT"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0202"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT DAYA-BLANG PIDIE"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0203"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT DAYA-JEUMPA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0204"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT DAYA-KUALA BATEE"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0205"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT DAYA-LEMBAH SABIL"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0206"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT DAYA-MANGGENG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0207"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT DAYA-SETIA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0208"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT DAYA-SUSOH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0209"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BARAT DAYA-TANGAN-TANGAN"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC03"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0301"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-BAITUSSALAM"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0302"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-BLANK BINTANG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0303"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-DARUL IMARAH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0304"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-DARUL KAMAL"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0305"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-DARUSSALAM"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0306"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-INDRAPURI"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0307"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-INGIN JAYA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0308"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-KOTA COT GLIE (KUTA COT GLIE)"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0309"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-KOTA JANTHO"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC030A"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-KOTA MALAKA (KUTA MALAKA)"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC030B"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-KRUENG BARONA JAYA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC030C"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-KUTA BARO"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC030D"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-LEMBAH SEULAWAH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC030E"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-LEUPUNG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC030F"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-LHOKNGA (LHO’’NGA)"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0310"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-LHOONG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0311"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-MANTASIEK (MONTASIK)"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0312"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-MESJID RAYA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0313"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-PEUKAN BADA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0314"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-PULO ACEH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0315"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-SEULIMEUM"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0316"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-SIMPANG TIGA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0317"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH BESAR-SUKA MAKMUR"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC04"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH JAYA"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0401"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH JAYA-DARUL HIKMAH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0402"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH JAYA-INDRA JAYA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0403"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH JAYA-JAYA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0404"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH JAYA-KEUDE PANGA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0405"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH JAYA-KRUENG SABEE"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0406"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH JAYA-PASIE RAYA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0407"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH JAYA-SAMPOINIET"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0408"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH JAYA-SETIA BAKTI"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0409"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH JAYA-TEUNOM"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC05"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0501"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-BAKONGAN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0502"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-BAKONGAN TIMUR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0503"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-KLUET SELATAN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0504"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-KLUET TENGAH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0505"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-KLUET TIMUR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0506"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-KLUET UTARA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0507"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-KOTA BAHAGIA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0508"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-LABUHAN HAJI"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0509"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-LABUHAN HAJI BARAT"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC050A"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-LABUHAN HAJI TIMUR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC050B"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-MEUKEK"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC050C"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-PASIE RAJA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC050D"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-SAMA DUA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC050E"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-SAWANG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC050F"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-TAPAK TUAN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0510"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-TRUMON"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0511"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-TRUMON TENGAH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0512"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SELATAN-TRUMON TIMUR"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC06"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0601"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-DANAU PARIS"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0602"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-GUNUNG MERIAH (MARIAH)"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0603"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-KOTA BAHARU"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0604"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-KUALA BARU"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0605"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-PULAU BANYAK"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0606"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-PULAU BANYAK BARAT"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0607"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-SIMPANG KANAN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0608"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-SINGKIL"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0609"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-SINGKIL UTARA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC060A"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-SINGKOHOR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC060B"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH SINGKIL-SURO MAKMUR"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC07"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0701"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-BANDA MULIA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0702"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-BANDAR PUSAKA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0703"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-BENDAHARA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0704"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-KARANG BARU"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0705"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-KEJURUAN MUDA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0706"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-KOTA KUALA SIMPANG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0707"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-MANYAK PAYED"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0708"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-RANTAU"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0709"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-SEKERAK"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC070A"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-SERUWAY"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC070B"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-TAMIANG HULU"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC070C"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TAMIANG-TENGGULUN"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC08"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0801"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-ATU LINTANG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0802"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-BEBESEN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0803"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-BIES"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0804"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-BINTANG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0805"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-CELALA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0806"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-JAGONG JEGET"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0807"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-KEBAYAKAN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0808"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-KETOL"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0809"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-KUTE PANANG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC080A"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-LINGE"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC080B"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-LUT TAWAR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC080C"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-PEGASING"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC080D"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-RUSIP ANTARA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC080E"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGAH-SILIH NARA"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC09"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0901"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-BABUL MAKMUR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0902"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-BABUL RAHMAH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0903"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-BABUSSALAM"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0904"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-BADAR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0905"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-BAMBEL"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0906"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-BUKIT TUSAM"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0907"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-DARUL HASANAH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0908"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-DELENG POKHISEN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0909"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-KETAMBE"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC090A"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-LAWE ALAS"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC090B"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-LAWE BULAN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC090C"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-LAWE SIGALA-GALA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC090D"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-LAWE SUMUR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC090E"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-LEUSER"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC090F"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-SEMADAM"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0910"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TENGGARA-TANAH ALAS"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A01"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-BANDA ALAM"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A02"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-BIREM BAYEUN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A03"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-DARUL AMAN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A04"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-DARUL FALAH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A05"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-DARUL IKSAN (IHSAN)"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A06"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-IDI RAYEUK"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A07"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-IDI TIMUR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A08"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-IDI TUNONG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A09"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-INDRA MAKMUR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A0A"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-JULOK"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A0B"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-MADAT"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A0C"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-NURUSSALAM"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A0D"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-PANTE BIDARI (BEUDARI)"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A0E"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-PEUDAWA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A0F"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-PEUNARON"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A10"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-PEUREULAK"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A11"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-PEUREULAK BARAT"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A12"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-PEUREULAK TIMUR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A13"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-RANTAU SELAMAT"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A14"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-RANTO PEUREULAK"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A15"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-SERBA JADI"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A16"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-SIMPANG JERNIH"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A17"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-SIMPANG ULIM"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0A18"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH TIMUR-SUNGAI RAYA"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"districts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B01"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-BAKTIYA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B02"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-BAKTIYA BARAT"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B03"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-BANDA BARO"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B04"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-COT GIREK"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B05"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-DEWANTARA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B06"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-GEUREDONG PASE"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B07"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-KUTA MAKMUR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B08"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-LANGKAHAN"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B09"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-LAPANG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B0A"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-LHOKSUKON"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B0B"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-MATANGKULI"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B0C"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-MEURAH MULIA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B0D"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-MUARA BATU"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B0E"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-NIBONG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B0F"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-NISAM"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B10"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-NISAM ANTARA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B11"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-PAYA BAKONG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B12"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-PIRAK TIMUR"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B13"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-SAMUDERA"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B14"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-SAWANG"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B15"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-SEUNUDDON (SEUNUDON)"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B16"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-SIMPANG KRAMAT (KERAMAT)"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B17"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-SYAMTALIRA ARON"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B18"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-SYAMTALIRA BAYU"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B19"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-TANAH JAMBO AYE"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B1A"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-TANAH LUAS"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="s2">"location_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-AC0B1B"</span><span class="p">,</span><span class="w">
-                                    </span><span class="s2">"provider_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEH UTARA-TANAH PASIR"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-</span></code></pre>
-<!-- Converted with the swagger-to-slate https://github.com/lavkumarv/swagger-to-slate -->
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Orders API uses the following error codes:</p>
+<p>The API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -1242,11 +319,11 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- The Order and Product requested is hidden for administrators only.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The specified Order and Product could not be found.</td>
 </tr>
 <tr>
 <td>500</td>
@@ -1257,7 +334,418 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
+<h1 id='good-issued'>Good Issued</h1><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /klog/v1/operation/gi</code></p>
+<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<p>Request body must be a JSON document with the following properties</p>
 
+<table><thead>
+<tr>
+<th>Section</th>
+<th>Node</th>
+<th>Subnode</th>
+<th>Description</th>
+<th>Map to Odoo</th>
+<th>Expected Value</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>basic details</td>
+<td>bookingNo</td>
+<td></td>
+<td>Booking No (BookingNo as specified by Inbound/Outbound Booking)</td>
+<td><em>sale_id.partner_id.name + sale_id.client_order_ref</em>, <strong>Suggested pattern:</strong> <em>{partner_name}-{client_order_ref}</em> (Masing2 bagian hanya mengandung karakter alfanumerik (alfabet atau angka) tanpa karakter lainnya.)</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>timestamp</td>
+<td></td>
+<td>Format = ISO8601, in UTC (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)</td>
+<td>x_module_status_updated_timestamp ( Not Exist )</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>AWB</td>
+<td></td>
+<td>Airway bill no</td>
+<td>AWB Number</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>action</td>
+<td></td>
+<td>Action for API call , Add, Edit</td>
+<td></td>
+<td>Add</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>[Loop] products</td>
+<td>productCode</td>
+<td></td>
+<td>Product Code from ODOO</td>
+<td>stock_move.product_id.barcode</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>quantity</td>
+<td>value</td>
+<td>Product Quantity from ODOO</td>
+<td>Product Qty</td>
+<td>Numeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>uom</td>
+<td>Product UOM</td>
+<td>Order UOM</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"basicDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bookingNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20200811_081455_budi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-19T04:44:53.002Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"awb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWBTEST"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENESS0318-8992772265041"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pcs"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='responses'>Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request acknowledged</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='goods-received-note'>Goods Received Note</h1><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /klog/v1/operation/grn</code></p>
+<h3 id='bookings-request-body-parameters'>Bookings - Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Section</th>
+<th>Node</th>
+<th>Subnode</th>
+<th>Description</th>
+<th>Map to Odoo</th>
+<th>Expected Value</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>basic details</td>
+<td>bookingNo</td>
+<td></td>
+<td>BookingNo (BookingNo as specified by Inbound/Outbound Booking)</td>
+<td>Booking No</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Timestamp</td>
+<td></td>
+<td>Format = ISO8601, in UTC (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)</td>
+<td>GRN datetime</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>action</td>
+<td></td>
+<td>Action for API call , Add, Edit</td>
+<td>fixed</td>
+<td>Add</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>[Loop] products</td>
+<td>productCode</td>
+<td></td>
+<td>Product Code from ODOO (Group by Product code, Sum(Qty),UOM, Status,DamageReasoncode)</td>
+<td>Product Code</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>quantity</td>
+<td>values</td>
+<td>Product Quantity from ODOO</td>
+<td>Product Quantity</td>
+<td>Numeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>uom</td>
+<td>Product UOM</td>
+<td>Product booking UOM</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>status</td>
+<td></td>
+<td>Product Status</td>
+<td>Product Status</td>
+<td>Normal/Damage</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>reason</td>
+<td></td>
+<td>Damage Reason code</td>
+<td>Product Damage Reason Code</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body example:
+<code>json
+{
+  &quot;basicDetails&quot;: {
+    &quot;bookingNo&quot;: &quot;20200811_081455_budi&quot;,
+    &quot;timestamp&quot;: &quot;2020-11-18T09:44:53.136Z&quot;
+  },
+  &quot;products&quot;: [
+    {
+      &quot;productCode&quot;: &quot;ENESS0318-8992772265041&quot;,
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 10,
+        &quot;uom&quot;: &quot;Pcs&quot;
+      },
+      &quot;status&quot;: &quot;Normal&quot;,
+      &quot;reason&quot;: &quot;Pcs&quot;
+    }
+  ]
+}
+</code></p>
+<h3 id='responses'>Responses</h3></blockquote>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request acknowledged</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='status-update'>Status Update</h1><h2 id='order-status-update'>Order Status UPdate</h2><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /klog/v1/operation/status-update</code></p>
+<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<p>Request body must be a JSON document with the following properties</p>
+
+<table><thead>
+<tr>
+<th>Section</th>
+<th>Node</th>
+<th>Subnode</th>
+<th>Description</th>
+<th>Map to Odoo</th>
+<th>Expected Value</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>basic details</td>
+<td>bookingNo</td>
+<td></td>
+<td>Booking No (BookingNo as specified by Inbound/Outbound Booking)</td>
+<td><em>sale_id.partner_id.name + sale_id.client_order_ref</em>, <strong>Suggested pattern:</strong> <em>{partner_name}-{client_order_ref}</em> (Masing2 bagian hanya mengandung karakter alfanumerik (alfabet atau angka) tanpa karakter lainnya.)</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>timestamp</td>
+<td></td>
+<td>Format = ISO8601, in UTC (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)</td>
+<td>x_module_status_updated_timestamp ( Not Exist )</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>status</td>
+<td></td>
+<td>Waiting or Allocated</td>
+<td>Booking Status ( state )</td>
+<td>Waiting or Allocated</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>action</td>
+<td></td>
+<td>Action for API call , Edit</td>
+<td></td>
+<td>edit</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"basicDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bookingNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20200811_081455_budi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-18T09:45:08.266Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waiting"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='responses'>Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request acknowledged</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='timeline-update'>Timeline Update</h1><h2 id='order-timeline-update'>Order Timeline Update</h2><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST //klog/v1/operation/timeline</code></p>
+<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<p>Request body must be a JSON document with the following properties</p>
+
+<table><thead>
+<tr>
+<th>Section</th>
+<th>Node</th>
+<th>Subnode</th>
+<th>Description</th>
+<th>Map to Odoo</th>
+<th>Expected Value</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>basic details</td>
+<td>bookingNo</td>
+<td></td>
+<td>Booking No (BookingNo as specified by Inbound/Outbound Booking)</td>
+<td><em>sale_id.partner_id.name + sale_id.client_order_ref</em>, <strong>Suggested pattern:</strong> <em>{partner_name}-{client_order_ref}</em> (Masing2 bagian hanya mengandung karakter alfanumerik (alfabet atau angka) tanpa karakter lainnya.)</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>[Loop] checkpoints</td>
+<td>type</td>
+<td>Checkpoint type</td>
+<td>Activity type based on Below table (eg. : Order Processing, Warehouse, Outbound, Courier Handover, etc)</td>
+<td>Text</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>start</td>
+<td>Checkpoint timestamp, ISO8601, in UTC</td>
+<td>Start time of activity (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>end</td>
+<td>Checkpoint timestamp, ISO8601, in UTC</td>
+<td>End time of activity (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"basicDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bookingNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20200811_081455_budi"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"checkpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-19T08:43:14.442Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-19T08:43:14.442Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='responses'>Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request acknowledged</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
+</span></code></pre>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
