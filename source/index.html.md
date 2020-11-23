@@ -9,11 +9,11 @@ toc_footers:
 
 includes: 
    - introduction
-   - errors
    - GI
    - GRN
    - status-update
    - timeline-update
+   - errors
 
 search: true 
 
