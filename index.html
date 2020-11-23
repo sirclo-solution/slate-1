@@ -222,9 +222,6 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
-          <li>
             <a href="#good-issued" class="toc-h1 toc-link" data-title="Good Issued">Good Issued</a>
               <ul class="toc-list-h2">
                   <li>
@@ -268,6 +265,9 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
@@ -278,7 +278,7 @@
       <div class="content">
         <!-- Converted with the swagger-to-slate https://github.com/lavkumarv/swagger-to-slate -->
 <h1 id='introduction'>Introduction</h1>
-<p><strong>Welcome To SIRCLO WMS Integration API Documentation</strong> <em>Test</em></p>
+<p><strong>Welcome To SIRCLO WMS Integration API Documentation</strong> </p>
 
 <p><strong>Version:</strong> 1.0</p>
 
@@ -297,40 +297,6 @@
 <tr>
 <td>Staging</td>
 <td><a href="https://wms.sirclo-integrations.com.dmmy.me">https://wms.sirclo-integrations.com.dmmy.me</a></td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
-<p>The API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The Order and Product requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified Order and Product could not be found.</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 <h1 id='good-issued'>Good Issued</h1><h3 id='http-request'>HTTP Request</h3>
@@ -742,7 +708,41 @@
 <p>The above request returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre><h1 id='errors'>Errors</h1>
+<p>The API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The Order and Product requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified Order and Product could not be found.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
