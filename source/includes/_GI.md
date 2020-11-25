@@ -14,8 +14,7 @@ Request body must be a JSON document with the following properties
 | | timestamp |  | Format = ISO8601, in UTC (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM) | x_module_status_updated_timestamp ( Not Exist )| Alphanumeric| Yes|
 ||AWB||Airway bill no |AWB Number |Alphanumeric | Yes
 ||messageId||unique number to identify integration message| Generate UUID (Universally Unique Indentifier) |UUID (Universally Unique Identifier) | Yes|
-||action||Action for API call , Add, Edit||Add | Yes
-| [Loop] products|productCode||Product Code from ODOO|stock_move.product_id.barcode| Alphanumeric|Yes
+| [Loop] products|productCode||Product SKU from ODOO|stock_move.product_id.default_code| Alphanumeric|Yes
 ||quantity|value |Product Quantity from ODOO|Product Qty|Numeric |Yes
 |||uom|Product UOM|Order UOM|Text |Yes
 

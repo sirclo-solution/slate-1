@@ -16,7 +16,7 @@ Request body must be a JSON document with the following properties
 | | timestamp |  | Format = ISO8601, in UTC (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM) | x_module_status_updated_timestamp ( Not Exist )| Alphanumeric| Yes|
 ||status||Waiting or Allocated|Booking Status ( state )|Waiting or Allocated| Yes
 ||messageId||unique number to identify integration message| Generate UUID (Universally Unique Indentifier) |UUID (Universally Unique Identifier) | Yes|
-||action||Action for API call , Edit||edit| Yes |
+
 > Request body example:
 
 ```json
