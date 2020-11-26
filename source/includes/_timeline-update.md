@@ -14,9 +14,9 @@ Request body must be a JSON document with the following properties
 | ----- | ------| ------| ---------------------------------| ------------------ | ----| --- | 
 | basic details|bookingNo||Booking No (BookingNo as specified by Inbound/Outbound Booking) |*sale_id.partner_id.name + sale_id.client_order_ref*, **Suggested pattern:** *{partner_name}-{client_order_ref}* (Masing2 bagian hanya mengandung karakter alfanumerik (alfabet atau angka) tanpa karakter lainnya.)|Alphanumeric| Yes | 
 ||messageId||unique number to identify integration message| Generate UUID (Universally Unique Indentifier) |UUID (Universally Unique Identifier) | Yes|
-|[Loop] checkpoints|type|Checkpoint type|Activity type based on Below table (eg. : Order Processing, Warehouse, Outbound, Courier Handover, etc)|Text | Yes
-||start |Checkpoint timestamp, ISO8601, in UTC|Start time of activity (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)|Alphanumeric|Yes
-||end |Checkpoint timestamp, ISO8601, in UTC|End time of activity (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)|Alphanumeric|Yes
+|[Loop] checkpoints|type||Checkpoint type|Activity type based on Below table (eg. : Order Processing, Warehouse, Outbound, Courier Handover, etc)|Text | Yes
+||start ||Checkpoint timestamp, ISO8601, in UTC|Start time of activity (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)|Alphanumeric|Yes
+||end ||Checkpoint timestamp, ISO8601, in UTC|End time of activity (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)|Alphanumeric|Yes
 
 > Request body example:
 
