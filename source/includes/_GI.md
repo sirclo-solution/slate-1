@@ -4,7 +4,7 @@
 
 `POST /operation/gi`
 
-## Inbound Request Body Parameters 
+## Request Body Parameters 
 
 Request body must be a JSON document with the following properties
 

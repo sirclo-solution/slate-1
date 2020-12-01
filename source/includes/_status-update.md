@@ -1,6 +1,6 @@
 # Status Update
 
-##Order Status UPdate
+## Order Status Update
 
 ### HTTP Request
 
