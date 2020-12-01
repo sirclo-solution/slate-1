@@ -228,10 +228,7 @@
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#request-body-parameters" class="toc-h2 toc-link" data-title="Request Body Parameters">Request Body Parameters</a>
-                  </li>
-                  <li>
-                    <a href="#responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                    <a href="#inbound-request-body-parameters" class="toc-h2 toc-link" data-title="Inbound Request Body Parameters">Inbound Request Body Parameters</a>
                   </li>
               </ul>
           </li>
@@ -292,16 +289,16 @@
 </thead><tbody>
 <tr>
 <td>Production</td>
-<td><a href="https://wms.sirclo-integrations.com">https://wms.sirclo-integrations.com</a></td>
+<td>-</td>
 </tr>
 <tr>
 <td>Staging</td>
-<td><a href="https://wms.sirclo-integrations.com.dmmy.me">https://wms.sirclo-integrations.com.dmmy.me</a></td>
+<td>-</td>
 </tr>
 </tbody></table>
 <h1 id='good-issued'>Good Issued</h1><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /klog/v1/operation/gi</code></p>
-<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<p><code>POST /operation/gi</code></p>
+<h2 id='inbound-request-body-parameters'>Inbound Request Body Parameters</h2>
 <p>Request body must be a JSON document with the following properties</p>
 
 <table><thead>
@@ -310,7 +307,6 @@
 <th>Node</th>
 <th>Subnode</th>
 <th>Description</th>
-<th>Map to Odoo</th>
 <th>Expected Value</th>
 <th>Required</th>
 </tr>
@@ -320,7 +316,6 @@
 <td>bookingNo</td>
 <td></td>
 <td>Booking No (BookingNo as specified by Inbound/Outbound Booking)</td>
-<td><em>sale_id.partner_id.name + sale_id.client_order_ref</em>, <strong>Suggested pattern:</strong> <em>{partner_name}-{client_order_ref}</em> (Masing2 bagian hanya mengandung karakter alfanumerik (alfabet atau angka) tanpa karakter lainnya.)</td>
 <td>Alphanumeric</td>
 <td>Yes</td>
 </tr>
@@ -329,7 +324,6 @@
 <td>timestamp</td>
 <td></td>
 <td>Format = ISO8601, in UTC (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)</td>
-<td>x_module_status_updated_timestamp ( Not Exist )</td>
 <td>Alphanumeric</td>
 <td>Yes</td>
 </tr>
@@ -338,7 +332,6 @@
 <td>AWB</td>
 <td></td>
 <td>Airway bill no</td>
-<td>AWB Number</td>
 <td>Alphanumeric</td>
 <td>Yes</td>
 </tr>
@@ -346,8 +339,7 @@
 <td></td>
 <td>messageId</td>
 <td></td>
-<td>unique number to identify integration message</td>
-<td>Generate UUID (Universally Unique Indentifier)</td>
+<td>unique## Outbound Request Body Parameters  number to identify integration message</td>
 <td>UUID (Universally Unique Identifier)</td>
 <td>Yes</td>
 </tr>
@@ -356,7 +348,6 @@
 <td>productCode</td>
 <td></td>
 <td>Product SKU from ODOO</td>
-<td>stock_move.product_id.default_code</td>
 <td>Alphanumeric</td>
 <td>Yes</td>
 </tr>
@@ -365,7 +356,6 @@
 <td>quantity</td>
 <td>value</td>
 <td>Product Quantity from ODOO</td>
-<td>Product Qty</td>
 <td>Numeric</td>
 <td>Yes</td>
 </tr>
@@ -374,7 +364,6 @@
 <td></td>
 <td>uom</td>
 <td>Product UOM</td>
-<td>Order UOM</td>
 <td>Text</td>
 <td>Yes</td>
 </tr>
@@ -418,7 +407,7 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='goods-received-note'>Goods Received Note</h1><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /klog/v1/operation/grn</code></p>
+<p><code>POST /operation/grn</code></p>
 <h3 id='bookings-request-body-parameters'>Bookings - Request Body Parameters</h3>
 <table><thead>
 <tr>
@@ -426,7 +415,6 @@
 <th>Node</th>
 <th>Subnode</th>
 <th>Description</th>
-<th>Map to Odoo</th>
 <th>Expected Value</th>
 <th>Required</th>
 </tr>
@@ -436,7 +424,6 @@
 <td>bookingNo</td>
 <td></td>
 <td>BookingNo (BookingNo as specified by Inbound/Outbound Booking)</td>
-<td>Booking No</td>
 <td>Alphanumeric</td>
 <td>Yes</td>
 </tr>
@@ -445,7 +432,6 @@
 <td>Timestamp</td>
 <td></td>
 <td>Format = ISO8601, in UTC (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)</td>
-<td>GRN datetime</td>
 <td>Alphanumeric</td>
 <td>Yes</td>
 </tr>
@@ -454,7 +440,6 @@
 <td>messageId</td>
 <td></td>
 <td>unique number to identify integration message</td>
-<td>Generate UUID (Universally Unique Indentifier)</td>
 <td>UUID (Universally Unique Identifier)</td>
 <td>Yes</td>
 </tr>
@@ -463,7 +448,6 @@
 <td>productCode</td>
 <td></td>
 <td>Product Code from ODOO (Group by Product code, Sum(Qty),UOM, Status,DamageReasoncode)</td>
-<td>Product Code</td>
 <td>Alphanumeric</td>
 <td>Yes</td>
 </tr>
@@ -472,7 +456,6 @@
 <td>quantity</td>
 <td>values</td>
 <td>Product Quantity from ODOO</td>
-<td>Product Quantity</td>
 <td>Numeric</td>
 <td>Yes</td>
 </tr>
@@ -481,7 +464,6 @@
 <td></td>
 <td>uom</td>
 <td>Product UOM</td>
-<td>Product booking UOM</td>
 <td>Text</td>
 <td>Yes</td>
 </tr>
@@ -491,7 +473,6 @@
 <td></td>
 <td>Product Status</td>
 <td>Product Status</td>
-<td>Normal/Damage</td>
 <td></td>
 </tr>
 <tr>
@@ -500,7 +481,6 @@
 <td></td>
 <td>Damage Reason code</td>
 <td>Product Damage Reason Code</td>
-<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -544,7 +524,7 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='status-update'>Status Update</h1><h2 id='order-status-update'>Order Status UPdate</h2><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /klog/v1/operation/status-update</code></p>
+<p><code>POST /operation/status-update</code></p>
 <h3 id='request-body-parameters'>Request Body Parameters</h3>
 <p>Request body must be a JSON document with the following properties</p>
 
@@ -554,7 +534,6 @@
 <th>Node</th>
 <th>Subnode</th>
 <th>Description</th>
-<th>Map to Odoo</th>
 <th>Expected Value</th>
 <th>Required</th>
 </tr>
@@ -564,7 +543,6 @@
 <td>bookingNo</td>
 <td></td>
 <td>Booking No (BookingNo as specified by Inbound/Outbound Booking)</td>
-<td><em>sale_id.partner_id.name + sale_id.client_order_ref</em>, <strong>Suggested pattern:</strong> <em>{partner_name}-{client_order_ref}</em> (Masing2 bagian hanya mengandung karakter alfanumerik (alfabet atau angka) tanpa karakter lainnya.)</td>
 <td>Alphanumeric</td>
 <td>Yes</td>
 </tr>
@@ -573,7 +551,6 @@
 <td>timestamp</td>
 <td></td>
 <td>Format = ISO8601, in UTC (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)</td>
-<td>x_module_status_updated_timestamp ( Not Exist )</td>
 <td>Alphanumeric</td>
 <td>Yes</td>
 </tr>
@@ -584,7 +561,6 @@
 <td>Waiting or Allocated</td>
 <td>Booking Status ( state )</td>
 <td>Waiting or Allocated</td>
-<td>Yes</td>
 </tr>
 <tr>
 <td></td>
@@ -593,7 +569,6 @@
 <td>unique number to identify integration message</td>
 <td>Generate UUID (Universally Unique Indentifier)</td>
 <td>UUID (Universally Unique Identifier)</td>
-<td>Yes</td>
 </tr>
 </tbody></table>
 
@@ -626,7 +601,7 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='timeline-update'>Timeline Update</h1><h2 id='order-timeline-update'>Order Timeline Update</h2><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST //klog/v1/operation/timeline</code></p>
+<p><code>POST /operation/timeline</code></p>
 <h3 id='request-body-parameters'>Request Body Parameters</h3>
 <p>Request body must be a JSON document with the following properties</p>
 
