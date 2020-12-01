@@ -4,7 +4,7 @@
 
 ### HTTP Request
 
-`POST //klog/v1/operation/timeline`
+`POST /operation/timeline`
 
 ### Request Body Parameters
 
