@@ -15,7 +15,7 @@
 Request body must be a JSON document with the following properties
 
 | Section | Node   | Subnode  | Description | Expected Value | Required 
-| ----- | ------| ------| ------------------ | ----| --- | 
+| ----- | ------| ------| ----------------------------- | ----| --- | 
 | BasicDetails | Booking Type ||Fixed |Normal | Yes
 ||BookingNo | | Unique Number |Alphanumeric | Yes
 ||BookingDate ||Message Received date | Date [yyyymmdd]| Yes
@@ -63,7 +63,7 @@ Request body must be a JSON document with the following properties
 Request body must be a JSON document with the following properties
 
 | Section | Node   | Subnode  | Description | Expected Value | Required 
-| ----- | ------| ------| ------------------ | ----| --- | 
+| ----- | ------| ------| ------------------------------- | ----| --- | 
 |BesicDetails|BookingType || Fixed | Normal | Yes 
 ||BookingNo  ||Order No from Odoo | Alphanumeric | Yes 
 ||BookingDate ||Order Date from Odoo | Datetime [yyyymmdd]|Yes 
@@ -90,3 +90,28 @@ Request body must be a JSON document with the following properties
 ||Barcode1Label||The barcode label, eg: Order number, or Airway Bill Number|Text|No 
 ||Barcode1Type||The barcode type, eg: Code 19 or Code 128, or QR Code|Text | No 
 ||Barcode1Value||The barcode content, eg: The AWB value|Text|No 
+||Barcode2Label||Provisional Field1|Text|No 
+||Barcode2Type||Provisional Field2|Text|No 
+||Barcode2Value||Provisional Field3|Text|No 
+||Barcode3Label||Provisional Field4|Text|No
+||Barcode3Type||Provisional Field5|Text|No
+||Barcode3Value||Provisional Field6|Text|No
+||Barcode4Label||Provisional Field7|Text|No
+||Barcode4Type||Provisional Field8|Text|No
+||Barcode4Value||Provisional Field9|Text|No
+||Barcode5Label||Provisional Field10|Text|No
+||Barcode5Type||Provisional Field11|Text|No
+||Barcode5Value||Provisional Field12|Text|No
+||ExtraText1Label||Free text's Label, eg: Port Code|Text |No 
+||ExtraText1Text||Free Text, eg: 1234|Text|No 
+||ExtraText2Label||Provisional Field13|Text |No
+||ExtraText2Text||Provisional Field14|Text |No
+||ExtraText3Label||Provisional Field15|Text |No
+||ExtraText3Text||Provisional Field16|Text |No
+||ExtraText4Label||Provisional Field17|Text |No
+||ExtraText4Text||Provisional Field18|Text |No
+||ExtraText5Label||Provisional Field19|Text |No
+||ExtraText5Text||Provisional Field20|Text |No
+||PackageDescription||To describe the package, eg: food, fashion, etc|Text|No 
+||ShippingCost||Order NOtes|Numeric | Yes
+||Notes||Order Notes|Text |No 
