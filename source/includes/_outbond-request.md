@@ -115,3 +115,24 @@ Request body must be a JSON document with the following properties
 ||PackageDescription||To describe the package, eg: food, fashion, etc|Text|No 
 ||ShippingCost||Order NOtes|Numeric | Yes
 ||Notes||Order Notes|Text |No 
+|[Loop]Parties|PartyName|Code|Fixed for Customer |Customer | Yes 
+||PartyName|Name|Customer Name|Alphanumeric |Yes | 
+||PartyType||Fixed always Consignee|Consignee|Yes |
+||AddressInformation|AddressLine1|Customer Address line1|Alphanumeric|Yes 
+|||AddressLine2|Customer Address line1|Alphanumeric|Yes 
+|||City|Customer City|Alphanumeric|Yes 
+|||StateProvince|Customer province|Alphanumeric|Yes
+|||ZipCode|Customer Zip Code|Alphanumeric|Yes
+|||Country|Customer Country|Alphanumeric|Yes
+||Contacts|Contact No -> Type | Fixed | Main | No 
+|||Contact No -> Number |Mobile no of the customer if any|Numeric|No
+|[Loop] Products|LineItemId||Line item id fi ODOO maintain||No 
+||Product Code||Product Code from Odoo||Yes
+||Quantity |Value|Product Quantity from Odoo||Yes
+|||UOM|Product UOM|Text|Yes
+||Brand/Seller||Brand/Seller Code|Text|Yes
+||OrderDetails|ManufacturingDate|Manufacturing date|Date [yyyymmdd]|No 
+|||ExpiryDate|ExpiryDate|Date [yyyymmdd]|No 
+|||PONo |PONo|Text |No 
+|||BatchNo  |BatchNo|Text |No 
+|||LotNo |LotNo|Text |No 
