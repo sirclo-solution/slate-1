@@ -9,8 +9,8 @@ toc_footers:
 
 includes: 
    - introduction
-   - inbound-request 
-   - outbound-request
+   - inbound request 
+   - outbound request
    - errors
 
 search: true 
