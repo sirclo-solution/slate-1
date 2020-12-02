@@ -263,6 +263,17 @@
               </ul>
           </li>
           <li>
+            <a href="#outbound-request" class="toc-h1 toc-link" data-title="Outbound Request">Outbound Request</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#booking-inbound-request" class="toc-h2 toc-link" data-title="Booking Inbound Request">Booking Inbound Request</a>
+                  </li>
+                  <li>
+                    <a href="#booking-outbound-request" class="toc-h2 toc-link" data-title="Booking Outbound Request">Booking Outbound Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -696,7 +707,507 @@
 <p>The above request returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='errors'>Errors</h1>
+</span></code></pre><h1 id='outbound-request'>Outbound Request</h1><h2 id='booking-inbound-request'>Booking Inbound Request</h2><h3 id='header-request'>Header Request</h3>
+<table><thead>
+<tr>
+<th>Section</th>
+<th>Mapping Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MessageTYpe</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>MessageVersion</td>
+<td>If multiple version then provide the version no</td>
+</tr>
+<tr>
+<td>MessageIdentifier</td>
+<td>Unique number to identify integration message</td>
+</tr>
+<tr>
+<td>MessageDateTime</td>
+<td>Message date time</td>
+</tr>
+</tbody></table>
+<h3 id='bookings-request'>Bookings Request</h3>
+<p>Request body must be a JSON document with the following properties</p>
+
+<table><thead>
+<tr>
+<th>Section</th>
+<th>Node</th>
+<th>Subnode</th>
+<th>Description</th>
+<th>Expected Value</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BasicDetails</td>
+<td>Booking Type</td>
+<td></td>
+<td>Fixed</td>
+<td>Normal</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>BookingNo</td>
+<td></td>
+<td>Unique Number</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>BookingDate</td>
+<td></td>
+<td>Message Received date</td>
+<td>Date [yyyymmdd]</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>ServiceClass</td>
+<td></td>
+<td>Fixed</td>
+<td>Normal</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Client</td>
+<td>Code</td>
+<td>Fixed</td>
+<td>SIRCLO</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Shipper</td>
+<td>Code</td>
+<td>Brand/Seller Code</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Consignee</td>
+<td>Code</td>
+<td>Brand/Seller Code</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>PONo</td>
+<td></td>
+<td>Order PONo from Odoo</td>
+<td>Alphanumeric</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>PODate</td>
+<td></td>
+<td>Order PODate from Odoo</td>
+<td>Date [yyyymmdd]</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>Due Date</td>
+<td>Date</td>
+<td>Order Due Date from Odoo</td>
+<td>Date [yyyymmdd]</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Time</td>
+<td>Time in 24 hour format</td>
+<td>HHMM</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Zone</td>
+<td>Fixed Jakarta</td>
+<td>Fixed</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>Movement</td>
+<td>Place of delivery</td>
+<td>Based on Consignee</td>
+<td>Alphanumeric</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>Movement</td>
+<td>MovementType</td>
+<td>Fixed</td>
+<td>Direct</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>PackageSummary</td>
+<td>TotalPackages</td>
+<td>Total Quantity</td>
+<td>Numeric</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>SystemInformation</td>
+<td>BookingOffice</td>
+<td>Destination Warehouse Code</td>
+<td>KLOGWH Name</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>ServiceTemplateName</td>
+<td></td>
+<td>Fixed</td>
+<td>Fixed-&quot;WHINB&quot;</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>[Loop] Products</td>
+<td>LineItemId</td>
+<td></td>
+<td>Line item id fi Odoo Maintain</td>
+<td>Numeric</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>ProductCode</td>
+<td></td>
+<td>Product Code from Odoo</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Quantity</td>
+<td>Value</td>
+<td>Product Quantity from Odoo</td>
+<td>Numeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>UOM</td>
+<td>Product UOM</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Brand/Seller</td>
+<td></td>
+<td>Brand/Seller Code</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>OrderDetails</td>
+<td>Manufacturing Date</td>
+<td>Manufacturing date</td>
+<td>Date [yyyymmdd]</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>ExpiryDate</td>
+<td>ExpiryDate</td>
+<td>Date [yyyymmdd]</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>PONo</td>
+<td>PONo</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>BatchNo</td>
+<td>Batch No</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>LotNo</td>
+<td>LotNo</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h2 id='booking-outbound-request'>Booking Outbound Request</h2><h3 id='header-request-2'>Header Request</h3>
+<table><thead>
+<tr>
+<th>Section</th>
+<th>Mapping Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MessageType</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>MessageVersion</td>
+<td>If multiple version the provide the version no</td>
+</tr>
+<tr>
+<td>MessageIdentifier</td>
+<td>Unique number to identify integration message</td>
+</tr>
+<tr>
+<td>MessageDateTime</td>
+<td>Message date time</td>
+</tr>
+</tbody></table>
+<h3 id='bookings-request-2'>Bookings Request</h3>
+<p>Request body must be a JSON document with the following properties</p>
+
+<table><thead>
+<tr>
+<th>Section</th>
+<th>Node</th>
+<th>Subnode</th>
+<th>Description</th>
+<th>Expected Value</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BesicDetails</td>
+<td>BookingType</td>
+<td></td>
+<td>Fixed</td>
+<td>Normal</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>BookingNo</td>
+<td></td>
+<td>Order No from Odoo</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>BookingDate</td>
+<td></td>
+<td>Order Date from Odoo</td>
+<td>Datetime [yyyymmdd]</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>ServiceClass</td>
+<td></td>
+<td>Order Type from Odoo</td>
+<td>Urgent, Normal or Same Day</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Client</td>
+<td>Code</td>
+<td>Fixed</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Shipper</td>
+<td>Code</td>
+<td>Brand/Seller Code</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>ShipperPhone</td>
+<td></td>
+<td>Brand/Seller Phone</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Marketplace</td>
+<td></td>
+<td>Marketplace</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>CustomerReferenceNo</td>
+<td></td>
+<td>Customer Reference Number</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Consignee</td>
+<td>Code</td>
+<td>Fixed for Customer Details will updated in party section</td>
+<td>Customer</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>PONo</td>
+<td></td>
+<td>PO Number</td>
+<td></td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>PO Date</td>
+<td></td>
+<td>PO Date</td>
+<td></td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>Due Date</td>
+<td>Date</td>
+<td>This is Due date for KLOG WH for delivery</td>
+<td>Date [yyyymmdd]</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Time</td>
+<td>Due Time</td>
+<td>HHMM</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Zone</td>
+<td>Due zone always Indonesia time</td>
+<td>Fixed</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Movement</td>
+<td>Place of Delivery</td>
+<td>Based on Consignee</td>
+<td>Alphanumeric</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>Movement</td>
+<td>MovementType</td>
+<td>Fixed</td>
+<td>Direct</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>PackageSummary</td>
+<td>TotalPackages</td>
+<td>Total quantity</td>
+<td>Numeric</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>SystemInformation</td>
+<td>BookingOffice</td>
+<td>If multiple warehouse then provide warehouse code else fixed</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Courier</td>
+<td>Code</td>
+<td>3PL Transport Partner</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>Courier Service Type</td>
+<td></td>
+<td>Courier service type</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>WaybillNo</td>
+<td>AWB Number</td>
+<td>Text</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>ServiceTemplateName</td>
+<td>Fixed</td>
+<td>Fixed - WHOB</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Barcode1Label</td>
+<td></td>
+<td>The barcode label, eg: Order number, or Airway Bill Number</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>Barcode1Type</td>
+<td></td>
+<td>The barcode type, eg: Code 19 or Code 128, or QR Code</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td>
+<td>Barcode1Value</td>
+<td></td>
+<td>The barcode content, eg: The AWB value</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
 <p>The API uses the following error codes:</p>
 
 <table><thead>
