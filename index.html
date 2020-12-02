@@ -222,43 +222,28 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#good-issued" class="toc-h1 toc-link" data-title="Good Issued">Good Issued</a>
+            <a href="#inbound-request" class="toc-h1 toc-link" data-title="Inbound Request">Inbound Request</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    <a href="#goods-received-note" class="toc-h2 toc-link" data-title="Goods Received Note">Goods Received Note</a>
+                  </li>
+                  <li>
+                    <a href="#good-issued" class="toc-h2 toc-link" data-title="Good Issued">Good Issued</a>
                   </li>
                   <li>
                     <a href="#request-body-parameters" class="toc-h2 toc-link" data-title="Request Body Parameters">Request Body Parameters</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#goods-received-note" class="toc-h1 toc-link" data-title="Goods Received Note">Goods Received Note</a>
-              <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    <a href="#timeline-update" class="toc-h2 toc-link" data-title="Timeline Update">Timeline Update</a>
                   </li>
-                  <li>
-                    <a href="#bookings-request-body-parameters" class="toc-h2 toc-link" data-title="Bookings - Request Body Parameters">Bookings - Request Body Parameters</a>
-                  </li>
-                  <li>
-                    <a href="#responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#status-update" class="toc-h1 toc-link" data-title="Status Update">Status Update</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#order-status-update" class="toc-h2 toc-link" data-title="Order Status Update">Order Status Update</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#timeline-update" class="toc-h1 toc-link" data-title="Timeline Update">Timeline Update</a>
-              <ul class="toc-list-h2">
                   <li>
                     <a href="#order-timeline-update" class="toc-h2 toc-link" data-title="Order Timeline Update">Order Timeline Update</a>
+                  </li>
+                  <li>
+                    <a href="#status-update" class="toc-h2 toc-link" data-title="Status Update">Status Update</a>
+                  </li>
+                  <li>
+                    <a href="#order-status-update" class="toc-h2 toc-link" data-title="Order Status Update">Order Status Update</a>
                   </li>
               </ul>
           </li>
@@ -307,117 +292,7 @@
 <td>-</td>
 </tr>
 </tbody></table>
-<h1 id='good-issued'>Good Issued</h1><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /operation/gi</code></p>
-<h2 id='request-body-parameters'>Request Body Parameters</h2>
-<p>Request body must be a JSON document with the following properties</p>
-
-<table><thead>
-<tr>
-<th>Section</th>
-<th>Node</th>
-<th>Subnode</th>
-<th>Description</th>
-<th>Expected Value</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>basic details</td>
-<td>bookingNo</td>
-<td></td>
-<td>Booking No (BookingNo as specified by Inbound/Outbound Booking)</td>
-<td>Alphanumeric</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td></td>
-<td>timestamp</td>
-<td></td>
-<td>Format = ISO8601, in UTC (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)</td>
-<td>Alphanumeric</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td></td>
-<td>AWB</td>
-<td></td>
-<td>Airway bill no</td>
-<td>Alphanumeric</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td></td>
-<td>messageId</td>
-<td></td>
-<td>unique## Outbound Request Body Parameters  number to identify integration message</td>
-<td>UUID (Universally Unique Identifier)</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>[Loop] products</td>
-<td>productCode</td>
-<td></td>
-<td>Product SKU from ODOO</td>
-<td>Alphanumeric</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td></td>
-<td>quantity</td>
-<td>value</td>
-<td>Product Quantity from ODOO</td>
-<td>Numeric</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>uom</td>
-<td>Product UOM</td>
-<td>Text</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Request body example:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"basicDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"bookingNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20200811_081455_budi"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-19T04:44:53.002Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"awb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWBTEST"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"messageId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32a9de58-c62a-4b20-8b3a-ac5c007f9448"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENESS0318-8992772265041"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"uom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pcs"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='responses'>Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Request acknowledged</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>The above request returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='goods-received-note'>Goods Received Note</h1><h3 id='http-request'>HTTP Request</h3>
+<h1 id='inbound-request'>Inbound Request</h1><h2 id='goods-received-note'>Goods Received Note</h2><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /operation/grn</code></p>
 <h3 id='bookings-request-body-parameters'>Bookings - Request Body Parameters</h3>
 <table><thead>
@@ -534,9 +409,9 @@
 <p>The above request returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='status-update'>Status Update</h1><h2 id='order-status-update'>Order Status Update</h2><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /operation/status-update</code></p>
-<h3 id='request-body-parameters'>Request Body Parameters</h3>
+</span></code></pre><h2 id='good-issued'>Good Issued</h2><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /operation/gi</code></p>
+<h2 id='request-body-parameters'>Request Body Parameters</h2>
 <p>Request body must be a JSON document with the following properties</p>
 
 <table><thead>
@@ -567,19 +442,43 @@
 </tr>
 <tr>
 <td></td>
-<td>status</td>
+<td>AWB</td>
 <td></td>
-<td>Waiting or Allocated</td>
-<td>Booking Status ( state )</td>
-<td>Waiting or Allocated</td>
+<td>Airway bill no</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
 </tr>
 <tr>
 <td></td>
 <td>messageId</td>
 <td></td>
-<td>unique number to identify integration message</td>
-<td>Generate UUID (Universally Unique Indentifier)</td>
+<td>unique## Outbound Request Body Parameters  number to identify integration message</td>
 <td>UUID (Universally Unique Identifier)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>[Loop] products</td>
+<td>productCode</td>
+<td></td>
+<td>Product SKU from ODOO</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>quantity</td>
+<td>value</td>
+<td>Product Quantity from ODOO</td>
+<td>Numeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>uom</td>
+<td>Product UOM</td>
+<td>Text</td>
+<td>Yes</td>
 </tr>
 </tbody></table>
 
@@ -589,12 +488,21 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"basicDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"bookingNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20200811_081455_budi"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-18T09:45:08.266Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waiting"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"messageId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65a9df59-c64d-4h20-6b8c-ac5c007f9223"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-19T04:44:53.002Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"awb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWBTEST"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"messageId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32a9de58-c62a-4b20-8b3a-ac5c007f9448"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENESS0318-8992772265041"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pcs"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='responses'>Responses</h3>
+</span></code></pre><h3 id='responses-2'>Responses</h3>
 <table><thead>
 <tr>
 <th>Code</th>
@@ -611,9 +519,9 @@
 <p>The above request returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='timeline-update'>Timeline Update</h1><h2 id='order-timeline-update'>Order Timeline Update</h2><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre><h2 id='timeline-update'>Timeline Update</h2><h2 id='order-timeline-update'>Order Timeline Update</h2><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST /operation/timeline</code></p>
-<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<h3 id='request-body-parameters-2'>Request Body Parameters</h3>
 <p>Request body must be a JSON document with the following properties</p>
 
 <table><thead>
@@ -690,7 +598,84 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='responses'>Responses</h3>
+</span></code></pre><h3 id='responses-3'>Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request acknowledged</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='status-update'>Status Update</h2><h2 id='order-status-update'>Order Status Update</h2><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST /operation/status-update</code></p>
+<h3 id='request-body-parameters-3'>Request Body Parameters</h3>
+<p>Request body must be a JSON document with the following properties</p>
+
+<table><thead>
+<tr>
+<th>Section</th>
+<th>Node</th>
+<th>Subnode</th>
+<th>Description</th>
+<th>Expected Value</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>basic details</td>
+<td>bookingNo</td>
+<td></td>
+<td>Booking No (BookingNo as specified by Inbound/Outbound Booking)</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>timestamp</td>
+<td></td>
+<td>Format = ISO8601, in UTC (eg: 2020-05-26T10:24:46Z for May 26 at 10:24:46 AM)</td>
+<td>Alphanumeric</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td></td>
+<td>status</td>
+<td></td>
+<td>Waiting or Allocated</td>
+<td>Booking Status ( state )</td>
+<td>Waiting or Allocated</td>
+</tr>
+<tr>
+<td></td>
+<td>messageId</td>
+<td></td>
+<td>unique number to identify integration message</td>
+<td>Generate UUID (Universally Unique Indentifier)</td>
+<td>UUID (Universally Unique Identifier)</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"basicDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bookingNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20200811_081455_budi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-18T09:45:08.266Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waiting"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"messageId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65a9df59-c64d-4h20-6b8c-ac5c007f9223"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='responses-4'>Responses</h3>
 <table><thead>
 <tr>
 <th>Code</th>
