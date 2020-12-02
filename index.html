@@ -222,7 +222,7 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#inbound-request" class="toc-h1 toc-link" data-title="Inbound Request">Inbound Request</a>
+            <a href="#inbound-request-callbacks" class="toc-h1 toc-link" data-title="Inbound Request (Callbacks)">Inbound Request (Callbacks)</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#goods-received-note" class="toc-h2 toc-link" data-title="Goods Received Note">Goods Received Note</a>
@@ -231,19 +231,10 @@
                     <a href="#good-issued" class="toc-h2 toc-link" data-title="Good Issued">Good Issued</a>
                   </li>
                   <li>
-                    <a href="#request-body-parameters" class="toc-h2 toc-link" data-title="Request Body Parameters">Request Body Parameters</a>
-                  </li>
-                  <li>
                     <a href="#timeline-update" class="toc-h2 toc-link" data-title="Timeline Update">Timeline Update</a>
                   </li>
                   <li>
-                    <a href="#order-timeline-update" class="toc-h2 toc-link" data-title="Order Timeline Update">Order Timeline Update</a>
-                  </li>
-                  <li>
                     <a href="#status-update" class="toc-h2 toc-link" data-title="Status Update">Status Update</a>
-                  </li>
-                  <li>
-                    <a href="#order-status-update" class="toc-h2 toc-link" data-title="Order Status Update">Order Status Update</a>
                   </li>
               </ul>
           </li>
@@ -292,7 +283,7 @@
 <td>-</td>
 </tr>
 </tbody></table>
-<h1 id='inbound-request'>Inbound Request</h1><h2 id='goods-received-note'>Goods Received Note</h2><h3 id='http-request'>HTTP Request</h3>
+<h1 id='inbound-request-callbacks'>Inbound Request (Callbacks)</h1><h2 id='goods-received-note'>Goods Received Note</h2><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /operation/grn</code></p>
 <h3 id='bookings-request-body-parameters'>Bookings - Request Body Parameters</h3>
 <table><thead>
@@ -411,7 +402,7 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='good-issued'>Good Issued</h2><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST /operation/gi</code></p>
-<h2 id='request-body-parameters'>Request Body Parameters</h2>
+<h3 id='request-body-parameters'>Request Body Parameters</h3>
 <p>Request body must be a JSON document with the following properties</p>
 
 <table><thead>
@@ -519,7 +510,7 @@
 <p>The above request returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='timeline-update'>Timeline Update</h2><h2 id='order-timeline-update'>Order Timeline Update</h2><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre><h2 id='timeline-update'>Timeline Update</h2><h3 id='order-timeline-update'>Order Timeline Update</h3><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST /operation/timeline</code></p>
 <h3 id='request-body-parameters-2'>Request Body Parameters</h3>
 <p>Request body must be a JSON document with the following properties</p>
@@ -615,7 +606,7 @@
 <p>The above request returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"200"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request acknowledged"</span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='status-update'>Status Update</h2><h2 id='order-status-update'>Order Status Update</h2><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre><h2 id='status-update'>Status Update</h2><h3 id='order-status-update'>Order Status Update</h3><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST /operation/status-update</code></p>
 <h3 id='request-body-parameters-3'>Request Body Parameters</h3>
 <p>Request body must be a JSON document with the following properties</p>
