@@ -9,8 +9,8 @@ toc_footers:
 
 includes: 
    - introduction
-   - inbound request (Callbacks)
-   - outbound request
+   - inbound-request 
+   - outbound-request
    - errors
 
 search: true 
