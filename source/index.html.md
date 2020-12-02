@@ -13,6 +13,7 @@ includes:
    - GRN
    - status-update
    - timeline-update
+   - outbond-request
    - errors
 
 search: true 
