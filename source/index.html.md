@@ -9,11 +9,8 @@ toc_footers:
 
 includes: 
    - introduction
-   - GI
-   - GRN
-   - status-update
-   - timeline-update
-   - outbond-request
+   - inbound request (Callbacks)
+   - outbound request
    - errors
 
 search: true 
